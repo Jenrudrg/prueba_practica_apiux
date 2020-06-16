@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en" class="bg-secondary">
+
+<head>
+    {%load static%}
+    <title>Prueba Practica</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- VENDOR CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'api_books/vendor/bootstrap/css/bootstrap.min.css'%}%">
+        <link rel="stylesheet" href="{% static 'api_books/vendor/font-awesome/css/font-awesome.min.css'%}">
+        <link rel="stylesheet" href="{% static 'api_books/vendor/linearicons/style.css'%}"> -->
+    <!-- MAIN CSS -->
+    <!-- <link rel="stylesheet" href="{% static 'api_books/css/main.css'%}"> -->
+    <!-- FOR DEMO PURPOSES ONLY. You should remove this in your project -->
+    <!-- <link rel="stylesheet" href="{% static 'api_books/css/demo.css'%}"> -->
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
+    <!-- ICONS -->
+    <!-- <link rel="apple-touch-icon" sizes="76x76" href="{% static 'api_books/img/apple-icon.png'%}">
+        <link rel="icon" type="image/png" sizes="96x96" href="{% static 'api_books/img/favicon.png'%}"> -->
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</head>
+
+<body class="container pt-4">
+    <!-- WRAPPER -->
+    <div>
+        <h3 class="page-title">Prueba Practica API libros</h3>
+    </div>
+    <hr>
+        <section class="p-4 ">
+            <!-- MAIN CONTENT -->
+            <div class="main-content">
+                <div class="container-fluid">
+                    <h4 class="page-title"> </h4>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- TABLE HOVER -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Obtener Autores</h3>
+                                </div>
+                                <div class="card-body shadow border boreder-secondary">
+<p>
+o POST: { url }/api/autor: Crear un autor (Nombre, Nacionalidad). <br><br>
+o GET: {url}/api/autor: Retorna todos los autores con sus respectivos libros. <br><br>
+o GET: {url}/api/autor/< id >: Retorna un autor específico con sus respectivos libros. <br><br>
+o POST: {url}/api/libro: Crea un libro y lo asocia a un autor. Si el autor existe, deberá
+asociar el libro, de no ser así, el sistema deberá crear al autor automáticamente además
+de crear el libro. Asuma que los nombres de autores serán genéricos, por ejemplo no se
+encontrará en el caso donde el autor de un libro se llame J.R.R Tolkien y el de otro libro
+se llame Tolkien.
+</p>
+                                </div>
+                            </div>
+                            <!-- END TABLE HOVER -->
+                        </div>
+                        <div class="col-md-5">
+                            <!-- TABLE HOVER -->
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Retornar Autores</h4>
+                                </div>
+                                <div class="card-body shadow border boreder-secondary">
+        <pre>
+        GET url/api/autor/
+        Content type:application/json
+        URL: <a href="/api/autor/">http://localhost:8000/</a> 
+        </pre>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Retorna Autores por ID</h4>
+                                </div>
+                                <div class="card-body shadow border boreder-secondary">
+        <pre>
+        GET url/api/autor/<kbd>1</kbd>
+        Content type:application/json
+        URL: <a href="/api/autor/1">http://localhost:8000/</a> 
+        </pre>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Crear Autor</h4>
+                                </div>
+                                <div class="card-body shadow border boreder-secondary">
+        <pre>
+        POST url/api/autor/
+        Content type:application/json
+        URL: <a href="/api/autor/">http://localhost:8000/</a> 
+        </pre>
+        <hr>
+        <p>Cuerpo de Solicitud:</p>
+        <pre>
+            {
+            "name": "author1",
+            "nationality": "Chilena"
+            }
+        </pre>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="panel">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">Crear Libros</h4>
+                                </div>
+                                <div class="card-body shadow border boreder-secondary">
+        <pre>
+        POST url/api/libro/
+        Content type:application/json
+        URL: <a href="/api/libro/">http://localhost:8000/</a> 
+        </pre>
+        <hr>
+        <p>Cuerpo de Solicitud:</p>
+        <pre>
+            {
+            "author_id": 4,
+            "name": "book8",
+            "pages_number": 450
+            }
+        </pre>
+                                </div>
+                            </div>
+                            <!-- END TABLE HOVER -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END MAIN CONTENT -->
+        </div>
+        <!-- END MAIN -->
+        <div class="clearfix"></div>
+        <footer>
+
+        </footer>
+    </section>
+    <!-- END WRAPPER -->
+    <!-- Javascript -->
+    <script>
+        $(document).ready(function () {
+            $('pre code').each(function (i, block) {
+                hljs.highlightBlock(block);
+            });
+        });
+    </script>
+    <script src="{% static 'api_books/vendor/jquery/jquery.min.js'}"></script>
+	<script src="{% static 'api_books/vendor/bootstrap/js/bootstrap.min.js'}"></script>
+	<script src="{% static 'api_books/vendor/jquery-slimscroll/jquery.slimscroll.min.js'}"></script>
+	<script src="{% static 'api_books/scripts/klorofil-common.js'}"></script>
+</body>
+
+</html>
